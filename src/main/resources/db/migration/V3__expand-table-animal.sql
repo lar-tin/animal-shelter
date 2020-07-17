@@ -1,0 +1,2 @@
+ALTER TABLE animal ALTER COLUMN gender SET NOT NULL;
+

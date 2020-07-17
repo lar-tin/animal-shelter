@@ -1,9 +1,8 @@
 package com.schenk.privat.animalshelter.api;
 
-import com.schenk.privat.animalshelter.service.AnimalServiceImpl;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.schenk.privat.animalshelter.service.animal.Animal;
+import com.schenk.privat.animalshelter.service.animal.AnimalServiceImpl;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,7 +17,12 @@ public class AnimalRestController {
     }
 
     @GetMapping
-    public List<String> getAnimals() {
+    public List<Animal> getAnimals() {
         return animalService.getAnimals();
+    }
+
+    @PostMapping(path = "/add")
+    public Animal addAnimal(@RequestBody Animal animal) {
+        return animalService.addAnimal(animal);
     }
 }
